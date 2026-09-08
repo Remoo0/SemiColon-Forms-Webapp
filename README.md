@@ -1,6 +1,6 @@
 # SemiColon Forms App
 
-A small site for holding your club's forms (membership sign-up, event RSVP, feedback, etc).
+A small site for holding SemiColon's forms (membership sign-up, event RSVP, feedback, etc).
 
 ## Project structure
 
