@@ -1,4 +1,4 @@
-# [Your Club Name] — Forms App
+# SemiColon Forms App
 
 A small site for holding your club's forms (membership sign-up, event RSVP, feedback, etc).
 
@@ -20,7 +20,7 @@ club-forms-app/
 │   └── vite.config.js
 ├── backend/               placeholder for wherever submissions end up
 │   └── README.md
-└── README.md              you are here
+└── README.md              
 ```
 
 ## Running the frontend
