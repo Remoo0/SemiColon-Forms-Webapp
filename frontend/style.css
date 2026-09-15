@@ -158,6 +158,9 @@ body::before {
 .carousel-shell {
   position: relative;
   z-index: 1;
+  max-width: 860px; /* Card (680px) + ~60px peek on each side + gaps */
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .carousel-arrow {
@@ -193,11 +196,11 @@ body::before {
 }
 
 .carousel-arrow-left {
-  left: 1rem;
+  left: 0.5rem;
 }
 
 .carousel-arrow-right {
-  right: 1rem;
+  right: 0.5rem;
 }
 
 .carousel-arrow:hover:not(:disabled),
@@ -275,15 +278,12 @@ body::before {
 .grid {
   display: flex;
   flex-wrap: nowrap;
-  max-width: none;
-  justify-content: flex-start;
-  gap: 1.35rem;
+  gap: 1.25rem;
   overflow-x: auto;
-  padding: 1.25rem max(1rem, calc((100vw - 680px) / 2)) 4rem;
-  scroll-padding-inline: max(1rem, calc((100vw - 680px) / 2));
+  padding: 1.25rem 5.6rem 3.5rem; /* Centers the 680px card inside the 860px shell */
+  scroll-padding-inline: 5.6rem;
   scroll-snap-type: x mandatory;
   overscroll-behavior-x: contain;
-  scrollbar-color: var(--blue) rgba(0, 0, 0, 0.35);
   scrollbar-width: none;
 }
 
@@ -296,6 +296,7 @@ body::before {
 .card {
   flex: 0 0 min(680px, calc(100vw - 4rem));
   width: min(680px, calc(100vw - 4rem));
+  height: 100%;                  /* Added: guarantees full height calculation */
   scroll-snap-align: center;
   scroll-snap-stop: always;
   position: relative;
@@ -380,7 +381,8 @@ body::before {
 }
 
 .card-frame {
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;                 /* Allows flex-grow to expand properly */
   display: flex;
   flex-direction: column;
   border-top: 1px solid var(--line-soft);
@@ -411,10 +413,11 @@ body::before {
 }
 
 .coming-soon {
-  flex: 1;
-  min-height: 280px;
+  width: 100%;
+  aspect-ratio: 1 / 1.1;         /* Matches the square poster + action bar height */
   display: grid;
   place-items: center;
+  align-content: center;         /* Centers the text and badge vertically and horizontally */
   padding: 2.5rem 2rem;
   text-align: center;
   background:
@@ -422,6 +425,7 @@ body::before {
     repeating-linear-gradient(135deg, rgba(0, 143, 234, 0.045) 0 1px, transparent 1px 18px),
     rgba(5, 8, 10, 0.65);
 }
+
 
 .coming-soon-content {
   display: grid;
