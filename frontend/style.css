@@ -164,26 +164,32 @@ body::before {
   position: absolute;
   top: 50%;
   z-index: 10;
-  display: grid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 44px;
   height: 44px;
   padding: 0;
-  place-items: center;
+  margin: 0;
   border: 1px solid var(--blue-bright);
   border-radius: 50%;
   color: var(--gold);
   background: rgba(5, 10, 14, 0.75);
-  font-family: 'Exo 2', system-ui, sans-serif;
   cursor: pointer;
   transform: translateY(-50%);
-  opacity: 0.55; /* Faded by default */
+  opacity: 0.55;
   box-shadow: 0 0 16px rgba(0, 143, 234, 0.25), inset 0 0 10px rgba(0, 143, 234, 0.08);
   transition: opacity 0.25s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .carousel-arrow span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.55rem;
-  line-height: 1;
+  line-height: 0;       /* Removes baseline font-metric spacing */
+  height: 100%;
+  transform: translateY(-2px); /* Optical vertical correction */
 }
 
 .carousel-arrow-left {
