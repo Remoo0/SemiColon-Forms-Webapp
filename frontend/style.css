@@ -257,9 +257,7 @@ body::before {
 
 .coming-soon-card .card-head h2,
 .coming-soon-card .card-head p,
-.coming-soon-card .coming-soon-content p {
-  opacity: 0.24;
-}
+.coming-soon-card .coming-soon-content p
 
 .coming-soon-card .coming-soon-label {
   border-color: rgba(26, 168, 255, 0.28);
