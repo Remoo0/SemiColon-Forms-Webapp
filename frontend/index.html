@@ -24,69 +24,64 @@
     <!-- ============================================================
          FORM CARD TEMPLATE
          Duplicate this <article> block for every Fillout form.
-         1. Change the title + description text.
-         2. Swap the <iframe src="..."> for your Fillout form URL,
-            found in Fillout under Share -> Embed -> Standard.
-         3. Cycle data-accent through 1 / 2 / 3 / 4 for the color rotation.
+         For an unavailable form, keep the coming-soon-card state below.
+         When a Fillout form is ready, remove coming-soon-card and replace
+         the coming-soon panel with a card-frame containing its iframe.
     ============================================================= -->
 
-    <article class="card" data-accent="1">
+    <article class="card coming-soon-card" data-accent="1" aria-label="General inquiry form — coming soon">
       <div class="card-bar"></div>
       <div class="card-head">
-        <h2>General inquiry</h2>
+        <h2><span class="form-title">General inquiry</span></h2>
         <p>For anything that doesn't fit the boxes below.</p>
       </div>
-      <div class="card-frame">
-        <iframe
-          src="https://forms.fillout.com/t/REPLACE_WITH_FORM_ID"
-          title="General inquiry form"
-          loading="lazy">
-        </iframe>
+      <div class="card-frame coming-soon" role="status">
+        <div class="coming-soon-content">
+          <span class="coming-soon-label">Coming Soon</span>
+          <p>This form is not available yet.</p>
+        </div>
       </div>
     </article>
 
-    <article class="card" data-accent="2">
+    <article class="card coming-soon-card" data-accent="2" aria-label="Get a quote form — coming soon">
       <div class="card-bar"></div>
       <div class="card-head">
-        <h2>Get a quote</h2>
+        <h2><span class="form-title">Get a quote</span></h2>
         <p>Tell us the scope and we'll follow up with numbers.</p>
       </div>
-      <div class="card-frame">
-        <iframe
-          src="https://forms.fillout.com/t/REPLACE_WITH_FORM_ID"
-          title="Get a quote form"
-          loading="lazy">
-        </iframe>
+      <div class="card-frame coming-soon" role="status">
+        <div class="coming-soon-content">
+          <span class="coming-soon-label">Coming Soon</span>
+          <p>This form is not available yet.</p>
+        </div>
       </div>
     </article>
 
-    <article class="card" data-accent="3">
+    <article class="card coming-soon-card" data-accent="3" aria-label="Join the team form — coming soon">
       <div class="card-bar"></div>
       <div class="card-head">
-        <h2>Join the team</h2>
+        <h2><span class="form-title">Join the team</span></h2>
         <p>Open roles and general applications.</p>
       </div>
-      <div class="card-frame">
-        <iframe
-          src="https://forms.fillout.com/t/REPLACE_WITH_FORM_ID"
-          title="Join the team form"
-          loading="lazy">
-        </iframe>
+      <div class="card-frame coming-soon" role="status">
+        <div class="coming-soon-content">
+          <span class="coming-soon-label">Coming Soon</span>
+          <p>This form is not available yet.</p>
+        </div>
       </div>
     </article>
 
-    <article class="card" data-accent="4">
+    <article class="card coming-soon-card" data-accent="4" aria-label="Report an issue form — coming soon">
       <div class="card-bar"></div>
       <div class="card-head">
-        <h2>Report an issue</h2>
+        <h2><span class="form-title">Report an issue</span></h2>
         <p>Something broken? Let us know what happened.</p>
       </div>
-      <div class="card-frame">
-        <iframe
-          src="https://forms.fillout.com/t/REPLACE_WITH_FORM_ID"
-          title="Report an issue form"
-          loading="lazy">
-        </iframe>
+      <div class="card-frame coming-soon" role="status">
+        <div class="coming-soon-content">
+          <span class="coming-soon-label">Coming Soon</span>
+          <p>This form is not available yet.</p>
+        </div>
       </div>
     </article>
 
