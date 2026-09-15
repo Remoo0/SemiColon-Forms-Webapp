@@ -296,7 +296,6 @@ body::before {
 .card {
   flex: 0 0 min(680px, calc(100vw - 4rem));
   width: min(680px, calc(100vw - 4rem));
-  height: 100%;                  /* Added: guarantees full height calculation */
   scroll-snap-align: center;
   scroll-snap-stop: always;
   position: relative;
@@ -310,6 +309,7 @@ body::before {
   box-shadow: 0 0 0 1px rgba(0, 80, 150, 0.2), 0 0 26px var(--shadow-blue), inset 0 0 28px rgba(0, 80, 145, 0.08);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
+
 
 .card:hover {
   border-color: var(--blue-bright);
@@ -380,9 +380,10 @@ body::before {
   min-height: 2.8em;
 }
 
+
 .card-frame {
   flex: 1 1 auto;
-  min-height: 0;                 /* Allows flex-grow to expand properly */
+  min-height: 0;
   display: flex;
   flex-direction: column;
   border-top: 1px solid var(--line-soft);
@@ -413,11 +414,13 @@ body::before {
 }
 
 .coming-soon {
+  flex: 1 1 auto;
   width: 100%;
-  aspect-ratio: 1 / 1.1;         /* Matches the square poster + action bar height */
-  display: grid;
-  place-items: center;
-  align-content: center;         /* Centers the text and badge vertically and horizontally */
+  min-height: 0;                 /* Removes any conflicting height caps */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;       /* Centers the content dead in the middle */
   padding: 2.5rem 2rem;
   text-align: center;
   background:
