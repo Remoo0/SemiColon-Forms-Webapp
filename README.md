@@ -1,41 +1,45 @@
-# SemiColon Forms App
+# Form Hub
 
-A small site for holding SemiColon's forms (membership sign-up, event RSVP, feedback, etc).
+A single static page with your Fillout forms laid out as cards in a grid.
 
-## Project structure
+## 1. Add your forms
 
-```
-club-forms-app/
-├── frontend/              React app (Vite) — everything people see and use
-│   ├── public/
-│   ├── src/
-│   │   ├── pages/
-│   │   │   ├── FormsPage.jsx    the forms hub page
-│   │   │   └── FormsPage.css
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   └── index.css
-│   ├── index.html
-│   ├── package.json
-│   └── vite.config.js
-├── backend/               placeholder for wherever submissions end up
-│   └── README.md
-└── README.md              
-```
+Open `index.html` and find the `<article class="card">` blocks inside `<main class="grid">`.
 
-## Running the frontend
+For each form:
+1. In Fillout, open your form → **Share** → **Embed** → **Standard** and copy the form URL (looks like `https://forms.fillout.com/t/xxxxxxxxxx`).
+2. Paste it into the matching card's `<iframe src="...">`.
+3. Update the `<h2>` title and `<p>` description text.
+4. Set `data-accent` on the `<article>` to `1`, `2`, `3`, or `4` to control which color bar it gets (they cycle).
+
+To add more forms than the four included, copy a whole `<article class="card">...</article>` block and paste it before `</main>` — the grid will automatically reflow to fit however many you add.
+
+To remove a form, delete its `<article>` block.
+
+## 2. Preview locally (optional)
+
+Any static server works, e.g.:
 
 ```
-cd frontend
-npm install
-npm run dev
+npx serve .
 ```
 
-Then open the local URL Vite prints (usually http://localhost:5173).
+Then open the printed localhost URL.
 
-## Where form submissions go
+## 3. Deploy to Vercel
 
-Right now submissions just log to the browser console — nothing is saved.
-See `backend/README.md` for the three easiest ways to actually collect them
-(Formspree, Google Sheets, or your own API), and `frontend/src/pages/FormsPage.jsx`
-for exactly where to plug that in (`handleSubmit`).
+From this folder:
+
+```
+npm i -g vercel
+vercel
+```
+
+Follow the prompts (accept defaults — it's a static site, no build step needed). Subsequent deploys: `vercel --prod`.
+
+Or: push this folder to a GitHub repo and import it in the Vercel dashboard — same result, with auto-deploys on every push.
+
+## Notes
+
+- Card iframe height is fixed at 520px (`style.css` → `.card-frame iframe`). If a Fillout form is much taller/shorter, adjust that value, or ask Fillout's embed settings for auto-resize and swap in their JS snippet instead of a plain iframe.
+- Colors, type, and spacing are all in `style.css` — the four accent colors are `--violet`, `--orange`, `--lime`, `--sky` near the top of the file.

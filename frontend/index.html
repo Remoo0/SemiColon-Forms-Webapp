@@ -1,12 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-mark" aria-hidden="true"></div>
+      <h1>Pick a form,<br>get it done.</h1>
+      <p class="hero-sub">Everything below goes straight to us. No account, no detour &mdash; find the right one and fill it in.</p>
+    </div>
+  </header>
+
+  <main class="grid" id="forms">
+
+    <!-- ============================================================
+         FORM CARD TEMPLATE
+         Duplicate this <article> block for every Fillout form.
+         1. Change the title + description text.
+         2. Swap the <iframe src="..."> for your Fillout form URL,
+            found in Fillout under Share -> Embed -> Standard.
+         3. Cycle data-accent through 1 / 2 / 3 / 4 for the color rotation.
+    ============================================================= -->
+
+    <article class="card" data-accent="1">
+      <div class="card-bar"></div>
+      <div class="card-head">
+        <h2>General inquiry</h2>
+        <p>For anything that doesn't fit the boxes below.</p>
+      </div>
+      <div class="card-frame">
+        <iframe
+          src="https://forms.fillout.com/t/REPLACE_WITH_FORM_ID"
+          title="General inquiry form"
+          loading="lazy">
+        </iframe>
+      </div>
+    </article>
+
+    <article class="card" data-accent="2">
+      <div class="card-bar"></div>
+      <div class="card-head">
+        <h2>Get a quote</h2>
+        <p>Tell us the scope and we'll follow up with numbers.</p>
+      </div>
+      <div class="card-frame">
+        <iframe
+          src="https://forms.fillout.com/t/REPLACE_WITH_FORM_ID"
+          title="Get a quote form"
+          loading="lazy">
+        </iframe>
+      </div>
+    </article>
+
+    <article class="card" data-accent="3">
+      <div class="card-bar"></div>
+      <div class="card-head">
+        <h2>Join the team</h2>
+        <p>Open roles and general applications.</p>
+      </div>
+      <div class="card-frame">
+        <iframe
+          src="https://forms.fillout.com/t/REPLACE_WITH_FORM_ID"
+          title="Join the team form"
+          loading="lazy">
+        </iframe>
+      </div>
+    </article>
+
+    <article class="card" data-accent="4">
+      <div class="card-bar"></div>
+      <div class="card-head">
+        <h2>Report an issue</h2>
+        <p>Something broken? Let us know what happened.</p>
+      </div>
+      <div class="card-frame">
+        <iframe
+          src="https://forms.fillout.com/t/REPLACE_WITH_FORM_ID"
+          title="Report an issue form"
+          loading="lazy">
+        </iframe>
+      </div>
+    </article>
+
+    <!-- Add more <article class="card"> blocks here as needed -->
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Your Company</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
 </html>
