@@ -127,14 +127,24 @@
       nextButton.disabled = carousel.scrollLeft >= maxScroll - 5;
     }
 
-    function moveToCard(direction) {
+    function getCurrentCardIndex() {
       const viewportCenter = carousel.scrollLeft + (carousel.clientWidth / 2);
-      const nextCards = cards.filter((card) => direction > 0
-        ? card.offsetLeft > viewportCenter + 10
-        : card.offsetLeft < viewportCenter - 10);
-      const target = direction > 0 ? nextCards[0] : nextCards[nextCards.length - 1];
+      return cards.reduce((closestIndex, card, index) => {
+        const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+        const closestCard = cards[closestIndex];
+        const closestCenter = closestCard.offsetLeft + (closestCard.offsetWidth / 2);
+        return Math.abs(cardCenter - viewportCenter) < Math.abs(closestCenter - viewportCenter)
+          ? index
+          : closestIndex;
+      }, 0);
+    }
 
-      if (!target) return;
+    function moveToCard(direction) {
+      const currentIndex = getCurrentCardIndex();
+      const targetIndex = Math.max(0, Math.min(cards.length - 1, currentIndex + direction));
+      const target = cards[targetIndex];
+
+      if (!target || targetIndex === currentIndex) return;
 
       carousel.scrollTo({
         left: target.offsetLeft - ((carousel.clientWidth - target.offsetWidth) / 2),
