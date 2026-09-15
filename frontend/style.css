@@ -147,17 +147,48 @@ body::before {
   box-shadow: 0 0 9px rgba(0, 143, 234, 0.9);
 }
 
+.swipe-hint {
+  margin: 1rem 0 0;
+  color: var(--muted-amber);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 /* ---------- Forms ---------- */
 
 .grid {
-  display: grid;
-  grid-template-columns: minmax(0, 720px);
-  justify-content: center;
-  gap: 1.45rem;
-  padding: 1.25rem 1rem 4rem;
+  display: flex;
+  flex-wrap: nowrap;
+  max-width: none;
+  justify-content: flex-start;
+  gap: 1.35rem;
+  overflow-x: auto;
+  padding: 1.25rem max(1rem, calc((100vw - 680px) / 2)) 4rem;
+  scroll-padding-inline: max(1rem, calc((100vw - 680px) / 2));
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-color: var(--blue) rgba(0, 0, 0, 0.35);
+  scrollbar-width: thin;
+}
+
+.grid::-webkit-scrollbar {
+  height: 7px;
+}
+
+.grid::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.grid::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: var(--blue);
 }
 
 .card {
+  flex: 0 0 min(680px, calc(100vw - 4rem));
+  width: min(680px, calc(100vw - 4rem));
+  scroll-snap-align: center;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -231,6 +262,22 @@ body::before {
   background: rgba(5, 8, 10, 0.65);
 }
 
+.fillout-frame {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding: 1.5rem;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(0, 102, 180, 0.1), transparent 48%),
+    rgba(5, 8, 10, 0.65);
+}
+
+.form-title-active {
+  color: var(--amber);
+  text-shadow: 0 0 8px rgba(255, 173, 0, 0.28);
+}
+
 .card-frame iframe {
   display: block;
   width: 100%;
@@ -292,7 +339,8 @@ body::before {
 @media (max-width: 640px) {
   .hero { padding-top: 3.25rem; }
   .brand-mark { height: 28px; }
-  .grid { padding-right: 0.8rem; padding-left: 0.8rem; }
+  .grid { padding-right: 1rem; padding-left: 1rem; }
+  .card { flex-basis: calc(100vw - 2rem); width: calc(100vw - 2rem); }
   .orb-left-top { left: -28px; }
   .orb-left-mid { left: -38px; }
   .orb-right-top { right: -34px; }

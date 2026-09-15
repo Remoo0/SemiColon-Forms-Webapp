@@ -27,10 +27,11 @@
       <p class="hero-kicker">Student Activity Forms</p>
       <p class="hero-sub">Choose the form you need and send it straight to the SemiColon team.</p>
       <div class="hero-rule" aria-hidden="true"></div>
+      <p class="swipe-hint">Swipe or scroll to view the next form <span aria-hidden="true">→</span></p>
     </div>
   </header>
 
-  <main class="grid" id="forms">
+  <main class="grid" id="forms" role="region" aria-label="SemiColon forms carousel" tabindex="0">
 
     <!-- ============================================================
          FORM CARD TEMPLATE
@@ -40,17 +41,15 @@
          the coming-soon panel with a card-frame containing its iframe.
     ============================================================= -->
 
-    <article class="card coming-soon-card" data-accent="1" aria-label="General inquiry form — coming soon">
+    <article class="card" data-accent="1" aria-label="General inquiry form">
       <div class="card-bar"></div>
       <div class="card-head">
-        <h2><span class="form-title">General inquiry</span></h2>
+        <h2><span class="form-title-active">General inquiry</span></h2>
         <p>For anything that doesn't fit the boxes below.</p>
       </div>
-      <div class="card-frame coming-soon" role="status">
-        <div class="coming-soon-content">
-          <span class="coming-soon-label">Coming Soon</span>
-          <p>This form is not available yet.</p>
-        </div>
+      <div class="card-frame fillout-frame">
+        <div data-fillout-id="dtA5m3UD2gus" data-fillout-embed-type="popup" data-fillout-dynamic-resize data-fillout-button-color="#FFC812" data-fillout-button-float="bottom-left" data-fillout-inherit-parameters data-fillout-popup-size="medium"></div>
+        <script src="https://server.fillout.com/embed/v1/"></script>
       </div>
     </article>
 
