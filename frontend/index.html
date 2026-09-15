@@ -31,7 +31,12 @@
     </div>
   </header>
 
-  <main class="grid" id="forms" role="region" aria-label="SemiColon forms carousel" tabindex="0">
+  <div class="carousel-shell">
+    <button class="carousel-arrow carousel-arrow-left" id="previous-form" type="button" aria-label="Previous form" aria-controls="forms">
+      <span aria-hidden="true">&#8592;</span>
+    </button>
+
+    <main class="grid" id="forms" role="region" aria-label="SemiColon forms carousel" tabindex="0">
 
     <!-- ============================================================
          FORM CARD TEMPLATE
@@ -41,14 +46,14 @@
          the coming-soon panel with a card-frame containing its iframe.
     ============================================================= -->
 
-    <article class="card" data-accent="1" aria-label="General inquiry form">
+    <article class="card" data-accent="1" aria-label="Multimedia &amp; Marketing Committee form">
       <div class="card-bar"></div>
       <div class="card-head">
-        <h2><span class="form-title-active">General inquiry</span></h2>
-        <p>For anything that doesn't fit the boxes below.</p>
+        <h2><span class="form-title-active">Multimedia &amp; Marketing Committee</span></h2>
+        <p>Join the Multimedia &amp; Marketing Committee.</p>
       </div>
       <div class="card-frame fillout-frame">
-        <div data-fillout-id="dtA5m3UD2gus" data-fillout-embed-type="popup" data-fillout-dynamic-resize data-fillout-button-color="#FFC812" data-fillout-button-float="bottom-left" data-fillout-inherit-parameters data-fillout-popup-size="medium"></div>
+        <div data-fillout-id="dtA5m3UD2gus" data-fillout-embed-type="popup" data-fillout-dynamic-resize data-fillout-button-color="#FFC812" data-fillout-inherit-parameters data-fillout-popup-size="medium"></div>
         <script src="https://server.fillout.com/embed/v1/"></script>
       </div>
     </article>
@@ -97,7 +102,12 @@
 
     <!-- Add more <article class="card"> blocks here as needed -->
 
-  </main>
+    </main>
+
+    <button class="carousel-arrow carousel-arrow-right" id="next-form" type="button" aria-label="Next form" aria-controls="forms">
+      <span aria-hidden="true">&#8594;</span>
+    </button>
+  </div>
 
   <footer class="site-footer">
     <p>&copy; <span id="year"></span> SemiColon</p>
@@ -105,6 +115,42 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const carousel = document.getElementById('forms');
+    const cards = Array.from(carousel.querySelectorAll('.card'));
+    const previousButton = document.getElementById('previous-form');
+    const nextButton = document.getElementById('next-form');
+
+    function updateCarouselButtons() {
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      previousButton.disabled = carousel.scrollLeft <= 5;
+      nextButton.disabled = carousel.scrollLeft >= maxScroll - 5;
+    }
+
+    function moveToCard(direction) {
+      const viewportCenter = carousel.scrollLeft + (carousel.clientWidth / 2);
+      const nextCards = cards.filter((card) => direction > 0
+        ? card.offsetLeft > viewportCenter + 10
+        : card.offsetLeft < viewportCenter - 10);
+      const target = direction > 0 ? nextCards[0] : nextCards[nextCards.length - 1];
+
+      if (!target) return;
+
+      carousel.scrollTo({
+        left: target.offsetLeft - ((carousel.clientWidth - target.offsetWidth) / 2),
+        behavior: 'smooth'
+      });
+    }
+
+    previousButton.addEventListener('click', () => moveToCard(-1));
+    nextButton.addEventListener('click', () => moveToCard(1));
+    carousel.addEventListener('scroll', updateCarouselButtons, { passive: true });
+    carousel.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') moveToCard(-1);
+      if (event.key === 'ArrowRight') moveToCard(1);
+    });
+    window.addEventListener('resize', updateCarouselButtons);
+    updateCarouselButtons();
   </script>
 
 </body>
