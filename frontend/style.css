@@ -163,7 +163,7 @@ body::before {
 .carousel-arrow {
   position: absolute;
   top: 50%;
-  z-index: 3;
+  z-index: 10;
   display: grid;
   width: 44px;
   height: 44px;
@@ -172,12 +172,13 @@ body::before {
   border: 1px solid var(--blue-bright);
   border-radius: 50%;
   color: var(--gold);
-  background: rgba(5, 10, 14, 0.88);
+  background: rgba(5, 10, 14, 0.75);
   font-family: 'Exo 2', system-ui, sans-serif;
   cursor: pointer;
   transform: translateY(-50%);
-  box-shadow: 0 0 16px rgba(0, 143, 234, 0.34), inset 0 0 12px rgba(0, 143, 234, 0.1);
-  transition: background 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  opacity: 0.55; /* Faded by default */
+  box-shadow: 0 0 16px rgba(0, 143, 234, 0.25), inset 0 0 10px rgba(0, 143, 234, 0.08);
+  transition: opacity 0.25s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .carousel-arrow span {
@@ -186,23 +187,26 @@ body::before {
 }
 
 .carousel-arrow-left {
-  left: max(0.35rem, calc((100vw - 760px) / 2));
+  left: 1rem;
 }
 
 .carousel-arrow-right {
-  right: max(0.35rem, calc((100vw - 760px) / 2));
+  right: 1rem;
 }
 
 .carousel-arrow:hover:not(:disabled),
 .carousel-arrow:focus-visible {
   outline: none;
+  opacity: 1;
   background: rgba(0, 104, 178, 0.32);
   box-shadow: 0 0 22px rgba(0, 143, 234, 0.58), inset 0 0 12px rgba(0, 143, 234, 0.18);
+  transform: translateY(-50%) scale(1.05);
 }
 
 .carousel-arrow:disabled {
   cursor: default;
-  opacity: 0.22;
+  opacity: 0.15;
+  box-shadow: none;
 }
 
 
@@ -366,9 +370,13 @@ body::before {
   color: var(--muted-amber);
   font-size: 0.92rem;
   line-height: 1.4;
+  min-height: 2.8em;
 }
 
 .card-frame {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   border-top: 1px solid var(--line-soft);
   background: rgba(5, 8, 10, 0.65);
 }
@@ -397,13 +405,14 @@ body::before {
 }
 
 .coming-soon {
-  min-height: 220px;
+  flex: 1;
+  min-height: 280px;
   display: grid;
   place-items: center;
-  padding: 2rem;
+  padding: 2.5rem 2rem;
   text-align: center;
   background:
-    radial-gradient(circle at 50% 50%, rgba(0, 102, 180, 0.1), transparent 48%),
+    radial-gradient(circle at 50% 50%, rgba(0, 102, 180, 0.14), transparent 60%),
     repeating-linear-gradient(135deg, rgba(0, 143, 234, 0.045) 0 1px, transparent 1px 18px),
     rgba(5, 8, 10, 0.65);
 }
@@ -450,11 +459,20 @@ body::before {
 @media (max-width: 640px) {
   .hero { padding-top: 3.25rem; }
   .brand-mark { height: 28px; }
-  .grid { padding-right: 1rem; padding-left: 1rem; }
-  .card { flex-basis: calc(100vw - 2rem); width: calc(100vw - 2rem); }
+  .grid {
+    gap: 1rem;
+    padding-top: 1.25rem;
+    padding-bottom: 3.5rem;
+    padding-inline: calc((100vw - 78vw) / 2);
+    scroll-padding-inline: calc((100vw - 78vw) / 2);
+  }
+  .card {
+    flex: 0 0 78vw;
+    width: 78vw;
+  }
   .carousel-arrow { width: 38px; height: 38px; }
-  .carousel-arrow-left { left: 0.25rem; }
-  .carousel-arrow-right { right: 0.25rem; }
+  .carousel-arrow-left { left: 0.5rem; }
+  .carousel-arrow-right { right: 0.5rem; }
   .orb-left-top { left: -28px; }
   .orb-left-mid { left: -38px; }
   .orb-right-top { right: -34px; }
