@@ -22,8 +22,16 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 body {
@@ -72,10 +80,29 @@ body::before {
   box-shadow: 0 0 24px rgba(87, 169, 255, 0.34), inset -10px -8px 18px rgba(0, 0, 0, 0.85);
 }
 
-.orb-left-top { top: -35px; left: 10%; transform: scale(0.86); }
-.orb-left-mid { top: 24%; left: 8%; transform: scale(1.05); }
-.orb-right-top { top: 35%; right: 8%; transform: scale(0.98); }
-.orb-right-bottom { top: 70%; right: 10%; transform: scale(1.1); }
+.orb-left-top {
+  top: -35px;
+  left: 10%;
+  transform: scale(0.86);
+}
+
+.orb-left-mid {
+  top: 24%;
+  left: 8%;
+  transform: scale(1.05);
+}
+
+.orb-right-top {
+  top: 35%;
+  right: 8%;
+  transform: scale(0.98);
+}
+
+.orb-right-bottom {
+  top: 70%;
+  right: 10%;
+  transform: scale(1.1);
+}
 
 .hero,
 .grid,
@@ -158,7 +185,8 @@ body::before {
 .carousel-shell {
   position: relative;
   z-index: 1;
-  max-width: 860px; /* Card (680px) + ~60px peek on each side + gaps */
+  max-width: 860px;
+  /* Card (680px) + ~60px peek on each side + gaps */
   margin: 0 auto;
   overflow: hidden;
 }
@@ -190,9 +218,11 @@ body::before {
   align-items: center;
   justify-content: center;
   font-size: 1.55rem;
-  line-height: 0;       /* Removes baseline font-metric spacing */
+  line-height: 0;
+  /* Removes baseline font-metric spacing */
   height: 100%;
-  transform: translateY(-2px); /* Optical vertical correction */
+  transform: translateY(-2px);
+  /* Optical vertical correction */
 }
 
 .carousel-arrow-left {
@@ -273,6 +303,36 @@ body::before {
   letter-spacing: 0.03em !important;
 }
 
+.promo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  padding: 0.6rem 1.25rem;
+  background: #FFC812;
+  color: #080909;
+  font-family: 'Exo 2', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255, 200, 18, 0.4);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.promo-button:hover {
+  background: #ffd000;
+  transform: translateY(-1px);
+  box-shadow: 0 0 18px rgba(255, 208, 0, 0.65);
+}
+
+.promo-button:active {
+  transform: translateY(0);
+}
+
 /* ---------- Forms ---------- */
 
 .grid {
@@ -280,7 +340,8 @@ body::before {
   flex-wrap: nowrap;
   gap: 1.25rem;
   overflow-x: auto;
-  padding: 1.25rem 5.6rem 3.5rem; /* Centers the 680px card inside the 860px shell */
+  padding: 1.25rem 5.6rem 3.5rem;
+  /* Centers the 680px card inside the 860px shell */
   scroll-padding-inline: 5.6rem;
   scroll-snap-type: x mandatory;
   overscroll-behavior-x: contain;
@@ -323,9 +384,7 @@ body::before {
 
 .coming-soon-card .card-head h2,
 .coming-soon-card .card-head p,
-.coming-soon-card .coming-soon-content p
-
-.coming-soon-card .coming-soon-label {
+.coming-soon-card .coming-soon-content p .coming-soon-card .coming-soon-label {
   border-color: rgba(26, 168, 255, 0.28);
   color: rgba(255, 208, 0, 0.28);
   background: rgba(4, 12, 18, 0.35);
@@ -346,9 +405,17 @@ body::before {
   box-shadow: 0 0 9px rgba(0, 143, 234, 0.65);
 }
 
-.card[data-accent="2"] .card-bar { background: linear-gradient(90deg, var(--blue), var(--orange)); }
-.card[data-accent="3"] .card-bar { background: linear-gradient(90deg, var(--blue), var(--gold)); }
-.card[data-accent="4"] .card-bar { background: linear-gradient(90deg, var(--blue), #35bfff); }
+.card[data-accent="2"] .card-bar {
+  background: linear-gradient(90deg, var(--blue), var(--orange));
+}
+
+.card[data-accent="3"] .card-bar {
+  background: linear-gradient(90deg, var(--blue), var(--gold));
+}
+
+.card[data-accent="4"] .card-bar {
+  background: linear-gradient(90deg, var(--blue), #35bfff);
+}
 
 .card-head {
   padding: 1.35rem 1.45rem 1.05rem;
@@ -416,11 +483,13 @@ body::before {
 .coming-soon {
   flex: 1 1 auto;
   width: 100%;
-  min-height: 0;                 /* Removes any conflicting height caps */
+  min-height: 0;
+  /* Removes any conflicting height caps */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;       /* Centers the content dead in the middle */
+  justify-content: center;
+  /* Centers the content dead in the middle */
   padding: 2.5rem 2rem;
   text-align: center;
   background:
@@ -470,8 +539,14 @@ body::before {
 }
 
 @media (max-width: 640px) {
-  .hero { padding-top: 3.25rem; }
-  .brand-mark { height: 28px; }
+  .hero {
+    padding-top: 3.25rem;
+  }
+
+  .brand-mark {
+    height: 28px;
+  }
+
   .grid {
     gap: 1rem;
     padding-top: 1.25rem;
@@ -479,15 +554,38 @@ body::before {
     padding-inline: calc((100vw - 78vw) / 2);
     scroll-padding-inline: calc((100vw - 78vw) / 2);
   }
+
   .card {
     flex: 0 0 78vw;
     width: 78vw;
   }
-  .carousel-arrow { width: 38px; height: 38px; }
-  .carousel-arrow-left { left: 0.5rem; }
-  .carousel-arrow-right { right: 0.5rem; }
-  .orb-left-top { left: -28px; }
-  .orb-left-mid { left: -38px; }
-  .orb-right-top { right: -34px; }
-  .orb-right-bottom { right: -30px; }
+
+  .carousel-arrow {
+    width: 38px;
+    height: 38px;
+  }
+
+  .carousel-arrow-left {
+    left: 0.5rem;
+  }
+
+  .carousel-arrow-right {
+    right: 0.5rem;
+  }
+
+  .orb-left-top {
+    left: -28px;
+  }
+
+  .orb-left-mid {
+    left: -38px;
+  }
+
+  .orb-right-top {
+    right: -34px;
+  }
+
+  .orb-right-bottom {
+    right: -30px;
+  }
 }
