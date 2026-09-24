@@ -4,16 +4,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
   <title>SemiColon - AI Summit Invitation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Exo+2:wght@400;500;600;700&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Audiowide&family=Exo+2:wght@400;500;600;700&family=Inter:opsz,wght@14..32,400..700&family=JetBrains+Mono:wght@700&family=Reem+Kufi:wght@500;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      box-sizing: border-box;
+    }
+
     .page-container {
-      max-width: 800px;
-      margin: 3rem auto;
+      max-width: 760px;
+      width: calc(100% - 2rem);
+      margin: 2.5rem auto;
       padding: 2rem;
       background: var(--panel);
       border: 1px solid var(--line);
@@ -22,20 +35,84 @@
       text-align: center;
       position: relative;
       z-index: 1;
+      box-sizing: border-box;
     }
 
     .page-title {
       font-family: 'Audiowide', sans-serif;
       color: var(--gold);
       font-size: 2rem;
-      margin-bottom: 1rem;
+      margin-top: 0;
+      margin-bottom: 0.75rem;
     }
 
     .page-desc {
       color: var(--muted-amber);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       margin-bottom: 2rem;
       line-height: 1.6;
+    }
+
+    /* Summit Responsive Embed Frame */
+    .summit-embed-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    .summit-wrapper {
+      width: 100%;
+      max-width: 600px;
+      background: #070C0B;
+      border: 1px solid #16241F;
+      border-radius: 6px;
+      overflow: hidden;
+      box-sizing: border-box;
+      text-align: left;
+    }
+
+    .summit-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      box-sizing: border-box;
+    }
+
+    .summit-banner-img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border: 0;
+      object-fit: cover;
+    }
+
+    .summit-px {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    .summit-btn {
+      font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+      display: inline-block;
+      padding: 15px 44px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #03110C !important;
+      text-decoration: none;
+      background: #00E39A;
+      border-radius: 4px;
+      box-shadow: 0 0 16px rgba(0, 227, 154, 0.4);
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .summit-btn:hover {
+      background: #00ffad;
+      transform: translateY(-1px);
+      box-shadow: 0 0 22px rgba(0, 227, 154, 0.65);
     }
 
     .back-link {
@@ -46,11 +123,72 @@
       color: var(--blue-bright);
       text-decoration: none;
       font-weight: 600;
-      transition: color 0.2s ease;
+      font-size: 1rem;
+      transition: color 0.2s ease, transform 0.2s ease;
     }
 
     .back-link:hover {
       color: var(--gold);
+      transform: translateX(-3px);
+    }
+
+    /* Mobile Responsive Optimizations */
+    @media only screen and (max-width: 640px) {
+      .page-container {
+        margin: 1rem auto;
+        padding: 1.25rem 0.65rem;
+        width: calc(100% - 1rem);
+        border-radius: 6px;
+      }
+
+      .page-title {
+        font-size: 1.55rem;
+      }
+
+      .page-desc {
+        font-size: 0.92rem;
+        margin-bottom: 1.25rem;
+        line-height: 1.45;
+      }
+
+      .summit-px {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+      }
+
+      .summit-btn {
+        padding: 13px 28px !important;
+        font-size: 13px !important;
+      }
+
+      .stat-cell {
+        padding: 10px 2px !important;
+      }
+
+      .stat-num {
+        font-size: 14px !important;
+      }
+
+      .stat-label {
+        font-size: 8px !important;
+        letter-spacing: 0.4px !important;
+        padding-top: 3px !important;
+      }
+
+      .schedule-date {
+        width: 65px !important;
+        font-size: 9px !important;
+      }
+
+      .referral-code-text {
+        font-size: 20px !important;
+        letter-spacing: 2px !important;
+      }
+
+      .section-heading {
+        font-size: 19px !important;
+        line-height: 25px !important;
+      }
     }
   </style>
 </head>
@@ -69,538 +207,410 @@
       learning opportunities. Join us for the Middle East's premier AI event and discover the latest trends and
       technologies shaping the future of artificial intelligence.</p>
 
-    <!-- Paste your desired HTML code / embed content below this line -->
-    <!DOCTYPE html>
-    <html lang="en">
+    <!-- Summit Invitation Content -->
+    <div class="summit-embed-container">
+      <div class="summit-wrapper">
+        <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:#030605;font-size:1px;line-height:1px;">
+          100+ speakers, 5 tracks, 7 days, free to attend. Your SEMICOLON code is what gets you the partner offers.
+          Register in a minute.
+        </div>
 
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1.0">
-      <meta name="color-scheme" content="dark">
-      <meta name="supported-color-schemes" content="dark">
-      <title>AI Summit - semicolon invite</title>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:opsz,wght@14..32,400..700&family=JetBrains+Mono:wght@700&family=Reem+Kufi:wght@500;700&display=swap"
-        rel="stylesheet">
-      <style>
-        body,
-        table,
-        td,
-        a {
-          -webkit-text-size-adjust: 100%;
-          -ms-text-size-adjust: 100%
-        }
+        <table class="summit-table" role="presentation" cellpadding="0" cellspacing="0" border="0" bgcolor="#070C0B">
+          <!-- TRACK BAR -->
+          <tr>
+            <td>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+                <tr>
+                  <td width="20%" height="3" bgcolor="#00E8A2" style="font-size:0;line-height:0;">&nbsp;</td>
+                  <td width="20%" height="3" bgcolor="#F53E9F" style="font-size:0;line-height:0;">&nbsp;</td>
+                  <td width="20%" height="3" bgcolor="#E8F200" style="font-size:0;line-height:0;">&nbsp;</td>
+                  <td width="20%" height="3" bgcolor="#F5A623" style="font-size:0;line-height:0;">&nbsp;</td>
+                  <td width="20%" height="3" bgcolor="#00D4FF" style="font-size:0;line-height:0;">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
 
-        table,
-        td {
-          border-collapse: collapse;
-        }
+          <!-- HERO BANNER -->
+          <tr>
+            <td style="padding:0;font-size:0;line-height:0;">
+              <a target="_blank" rel="noopener"
+                href="https://brainsmingle.com/aisummit?utm_source=semicolon&utm_medium=email&utm_campaign=aisummit_2026&utm_content=invite&prtref=semicolon"
+                style="display:block;">
+                <img src="https://i.postimg.cc/dVqGwsZS/emails-banner-1.png"
+                  alt="BrainsMingle AI Summit. The Middle East's AI Summit, streamed live. 10 to 16 October. Five perspectives, one bigger conversation."
+                  class="summit-banner-img">
+              </a>
+            </td>
+          </tr>
 
-        img {
-          -ms-interpolation-mode: bicubic;
-          border: 0;
-          line-height: 100%;
-          outline: none;
-          text-decoration: none;
-          display: block
-        }
-
-        body {
-          margin: 0 !important;
-          padding: 0 !important;
-          width: 100% !important;
-          background: #030605
-        }
-
-        a {
-          color: #00E39A
-        }
-
-        :root {
-          color-scheme: dark
-        }
-
-        .cd[data-ogsb],
-        [data-ogsb] .cd {
-          background: #070C0B !important
-        }
-
-        .bgp[data-ogsb],
-        [data-ogsb] .bgp {
-          background: #030605 !important
-        }
-
-        .pnl[data-ogsb],
-        [data-ogsb] .pnl {
-          background: #0A110F !important
-        }
-
-        .tw[data-ogsc],
-        [data-ogsc] .tw {
-          color: #FFFFFF !important
-        }
-
-        .mt[data-ogsc],
-        [data-ogsc] .mt {
-          color: #00E39A !important
-        }
-
-        @media only screen and (max-width:600px) {
-          .container {
-            width: 100% !important
-          }
-
-          .px {
-            padding-left: 22px !important;
-            padding-right: 22px !important
-          }
-
-          .hero {
-            font-size: 27px !important;
-            line-height: 33px !important
-          }
-
-          .name {
-            font-size: 16px !important
-          }
-
-          .phone {
-            width: 130px !important
-          }
-
-          .appcell {
-            padding: 18px 14px !important
-          }
-        }
-      </style>
-    </head>
-
-    <body style="margin:0;padding:0;background:#030605;">
-      <!-- SUBJECT: Your free pass to the region's largest AI Summit -->
-      <!-- PARTNER: semicolon | TOUCH: invite | CODE: SEMICOLON | CTA: https://brainsmingle.com/aisummit?utm_source=semicolon&utm_medium=email&utm_campaign=aisummit_2026&utm_content=invite&prtref=semicolon -->
-      <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:#030605;font-size:1px;line-height:1px;">100+
-        speakers, 5 tracks, 7 days, free to attend. Your SEMICOLON code is what gets you the partner offers. Register in
-        a minute.</div>
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#030605"
-        style="background:#030605;">
-        <tr>
-          <td align="center" style="padding:30px 12px;">
-            <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#070C0B"
-              style="width:600px;background:#070C0B;border:1px solid #16241F;">
-
-              <!-- TRACK BAR -->
-              <tr>
-                <td>
-                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                    <tr>
-                      <td width="20%" height="3" bgcolor="#00E8A2" style="font-size:0;line-height:0;">&nbsp;</td>
-                      <td width="20%" height="3" bgcolor="#F53E9F" style="font-size:0;line-height:0;">&nbsp;</td>
-                      <td width="20%" height="3" bgcolor="#E8F200" style="font-size:0;line-height:0;">&nbsp;</td>
-                      <td width="20%" height="3" bgcolor="#F5A623" style="font-size:0;line-height:0;">&nbsp;</td>
-                      <td width="20%" height="3" bgcolor="#00D4FF" style="font-size:0;line-height:0;">&nbsp;</td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-
-              <!-- HERO banner -->
-              <tr>
-                <td style="padding:0;font-size:0;line-height:0;"><a target="_blank" rel="noopener"
-                    href="https://brainsmingle.com/aisummit?utm_source=semicolon&utm_medium=email&utm_campaign=aisummit_2026&utm_content=invite&prtref=semicolon"
-                    style="display:block;"><img src="https://i.postimg.cc/dVqGwsZS/emails-banner-1.png" width="600"
-                      alt="BrainsMingle AI Summit. The Middle East's AI Summit, streamed live. 10 to 16 October. Five perspectives, one bigger conversation."
-                      style="display:block;width:100%;max-width:600px;height:auto;border:0;"></a></td>
-              </tr>
-              <tr>
-                <td align="center" bgcolor="#070C0B" style="background:#070C0B;padding:26px 40px 34px 40px;">
-                  <table cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;">
-                    <tr>
-                      <td bgcolor="#00E39A" style="background:#00E39A;border-radius:4px;">
-                        <a target="_blank" rel="noopener"
-                          href="https://brainsmingle.com/aisummit?utm_source=semicolon&utm_medium=email&utm_campaign=aisummit_2026&utm_content=invite&prtref=semicolon"
-                          class="arch"
-                          style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;display:inline-block;padding:15px 44px;font-size:14px;font-weight:600;letter-spacing:1px;color:#03110C;text-decoration:none;"><b>REGISTER
-                            NOW</b></a>
-                      </td>
-                    </tr>
-                  </table>
-                  <div class="inter"
-                    style="font-family:'Inter 28pt','Inter',-apple-system,Arial,sans-serif;font-size:13px;line-height:20px;color:#96A5A0;padding-top:14px;">
-                    Free to attend &nbsp;&middot;&nbsp; Fully virtual &nbsp;&middot;&nbsp; 10 &ndash; 16 October 2026
-                  </div>
-
-                </td>
-              </tr>
-
-              <!-- PARTNER OPENER -->
-              <tr>
-                <td style="padding:0 40px 0 40px;">
-                  <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0B1412"
-                    style="background:#0B1412;">
-                    <tr>
-                      <td width="3" bgcolor="#00E39A" style="background:#00E39A;font-size:0;line-height:0;">&nbsp;</td>
-                      <td
-                        style="padding:18px 20px;font-family:'Inter 28pt','Inter',-apple-system,Arial,sans-serif;font-size:13.5px;line-height:22px;color:#B6C3BE;">
-                        As an official partner of the BrainsMingle AI Summit 2026, <b
-                          style="color:#FFFFFF;">SemiColon</b> is bringing our community into the room. The summit is
-                        free for everyone, and registering through our link puts you on the list for special offers from
-                        the summit&rsquo;s partners.</td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <!-- REFERRAL CODE -->
-              <tr>
-                <td style="padding:12px 40px 30px 40px;">
-                  <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#071110"
-                    style="background:#071110;border:1px dashed #1E3A33;">
-                    <tr>
-                      <td align="center" style="padding:18px 20px;">
-                        <div
-                          style="font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:700;letter-spacing:2.5px;color:#7E8F89;">
-                          YOUR REFERRAL CODE</div>
-                        <div
-                          style="font-family:'JetBrains Mono','Courier New',monospace;font-size:24px;font-weight:700;letter-spacing:4px;color:#00E39A;padding-top:8px;">
-                          <a target="_blank" rel="noopener"
-                            href="https://brainsmingle.com/aisummit?utm_source=semicolon&utm_medium=email&utm_campaign=aisummit_2026&utm_content=invite&prtref=semicolon"
-                            style="color:#00E39A;text-decoration:none;">SEMICOLON</a>
-                        </div>
-                        <div
-                          style="font-family:'Inter 28pt','Inter',-apple-system,Arial,sans-serif;font-size:12px;line-height:19px;color:#8D9C97;padding-top:8px;">
-                          <span style="color:#00E39A;font-weight:700;">&#10003;</span> Already applied to your link.
-                          Nothing to type.
-                        </div>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-
-              <!-- STATS -->
-              <tr>
-                <td style="padding:0 40px;">
-                  <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0A110F"
-                    style="table-layout:fixed;background:#0A110F;border:1px solid #16241F;">
-                    <tr>
-                      <td width="20%" align="center" style="width:20%;padding:14px 0;border-right:1px solid #16241F;">
-                        <div class="arch"
-                          style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:800;color:#FFFFFF;">
-                          <b>50K+</b>
-                        </div>
-                        <div class="inter"
-                          style="font-family:'Inter 28pt','Inter',-apple-system,Arial,sans-serif;font-size:10px;letter-spacing:0.8px;color:#7E8F89;padding-top:6px;">
-                          ATTENDEES</div>
-                      </td>
-                      <td width="20%" align="center" style="width:20%;padding:14px 0;border-right:1px solid #16241F;">
-                        <div class="arch"
-                          style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:800;color:#FFFFFF;">
-                          <b>100+</b>
-                        </div>
-                        <div class="inter"
-                          style="font-family:'Inter 28pt','Inter',-apple-system,Arial,sans-serif;font-size:10px;letter-spacing:0.8px;color:#7E8F89;padding-top:6px;">
-                          SPEAKERS</div>
-                      </td>
-                      <td width="20%" align="center" style="width:20%;padding:14px 0;border-right:1px solid #16241F;">
-                        <div class="arch"
-                          style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:800;color:#FFFFFF;">
-                          <b>90+</b>
-                        </div>
-                        <div class="inter"
-                          style="font-family:'Inter 28pt','Inter',-apple-system,Arial,sans-serif;font-size:10px;letter-spacing:0.8px;color:#7E8F89;padding-top:6px;">
-                          SESSIONS</div>
-                      </td>
-                      <td width="20%" align="center" style="width:20%;padding:14px 0;border-right:1px solid #16241F;">
-                        <div class="arch"
-                          style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:800;color:#FFFFFF;">
-                          <b>5</b>
-                        </div>
-                        <div class="inter"
-                          style="font-family:'Inter 28pt','Inter',-apple-system,Arial,sans-serif;font-size:10px;letter-spacing:0.8px;color:#7E8F89;padding-top:6px;">
-                          TRACKS</div>
-                      </td>
-                      <td width="20%" align="center" style="width:20%;padding:14px 0;">
-                        <div class="arch"
-                          style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:800;color:#FFFFFF;">
-                          <b>7</b>
-                        </div>
-                        <div class="inter"
-                          style="font-family:'Inter 28pt','Inter',-apple-system,Arial,sans-serif;font-size:10px;letter-spacing:0.8px;color:#7E8F89;padding-top:6px;">
-                          DAYS</div>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-
-              <!-- 01 -->
-              <tr>
-                <td style="padding:30px 40px 0 40px;">
-                  <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0B1412"
-                    style="background:#0B1412;">
-                    <tr>
-                      <td width="3" bgcolor="#00E39A" style="font-size:0;line-height:0;">&nbsp;</td>
-                      <td class="mono"
-                        style="font-family:'JetBrains Mono','Courier New',monospace;padding:10px 14px;font-size:10px;font-weight:700;letter-spacing:2.5px;color:#FFFFFF;">
-                        <b>01 &nbsp;WHAT IS BRAINSMINGLE AI SUMMIT</b>
-                      </td>
-                      <td align="right" class="kufi"
-                        style="font-family:'Reem Kufi','Noto Kufi Arabic','Tajawal',Tahoma,Arial,sans-serif;padding:10px 14px;font-size:13px;color:#8FA09A;"
-                        dir="rtl">ما هي القمة</td>
-                    </tr>
-                  </table>
-                  <div class="arch"
-                    style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:24px;font-weight:500;line-height:30px;color:#FFFFFF;padding-top:20px;">
-                    <b>Everyone in AI.<br>One week. <span style="color:#00E39A;">One room.</span></b>
-                  </div>
-                  <div class="inter"
-                    style="font-family:'Inter 28pt','Inter',-apple-system,Arial,sans-serif;font-size:13.5px;line-height:22px;color:#96A5A0;padding-top:12px;">
-                    The <b style="color:#FFFFFF;">BrainsMingle AI Summit</b> is a week-long virtual event built entirely
-                    around artificial intelligence,streamed live on BrainsMingle. Five tracks run in parallel every
-                    night for seven nights: live sessions, a signature panel, and speed networking rounds that end in a
-                    full day of nothing but introductions.</div>
-                </td>
-              </tr>
-
-              <!-- 02 TRACKS -->
-              <tr>
-                <td style="padding:28px 40px 0 40px;">
-                  <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0B1412"
-                    style="background:#0B1412;">
-                    <tr>
-                      <td width="3" bgcolor="#00E39A" style="font-size:0;line-height:0;">&nbsp;</td>
-                      <td class="mono"
-                        style="font-family:'JetBrains Mono','Courier New',monospace;padding:10px 14px;font-size:10px;font-weight:700;letter-spacing:2.5px;color:#FFFFFF;">
-                        <b>02 &nbsp;THE TRACKS</b>
-                      </td>
-                      <td align="right" class="kufi"
-                        style="font-family:'Reem Kufi','Noto Kufi Arabic','Tajawal',Tahoma,Arial,sans-serif;padding:10px 14px;font-size:13px;color:#8FA09A;"
-                        dir="rtl">المسارات</td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding:14px 40px 0 40px;">
-                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                    <tr>
-                      <td width="22" valign="middle" style="padding:8px 0;line-height:0;font-size:0;">
-                        <table cellpadding="0" cellspacing="0" border="0">
-                          <tr>
-                            <td width="8" height="8" bgcolor="#00E8A2"
-                              style="background:#00E8A2;width:8px;height:8px;font-size:0;line-height:0;">&nbsp;</td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td valign="middle" class="arch"
-                        style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;padding:8px 0;font-size:12.5px;font-weight:500;line-height:20px;color:#C2D0CB;">
-                        AI in Learning &amp; Development</td>
-                      <td valign="middle" align="right" class="kufi"
-                        style="font-family:'Reem Kufi','Noto Kufi Arabic','Tajawal',Tahoma,Arial,sans-serif;padding:8px 0;font-size:13.5px;line-height:20px;color:#00E8A2;"
-                        dir="rtl">التعلّم والتطوير</td>
-                    </tr>
-                    <tr>
-                      <td width="22" valign="middle" style="padding:8px 0;line-height:0;font-size:0;">
-                        <table cellpadding="0" cellspacing="0" border="0">
-                          <tr>
-                            <td width="8" height="8" bgcolor="#F53E9F"
-                              style="background:#F53E9F;width:8px;height:8px;font-size:0;line-height:0;">&nbsp;</td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td valign="middle" class="arch"
-                        style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;padding:8px 0;font-size:12.5px;font-weight:500;line-height:20px;color:#C2D0CB;">
-                        AI in Creative Industries</td>
-                      <td valign="middle" align="right" class="kufi"
-                        style="font-family:'Reem Kufi','Noto Kufi Arabic','Tajawal',Tahoma,Arial,sans-serif;padding:8px 0;font-size:13.5px;line-height:20px;color:#F53E9F;"
-                        dir="rtl">الصناعات الإبداعية</td>
-                    </tr>
-                    <tr>
-                      <td width="22" valign="middle" style="padding:8px 0;line-height:0;font-size:0;">
-                        <table cellpadding="0" cellspacing="0" border="0">
-                          <tr>
-                            <td width="8" height="8" bgcolor="#E8F200"
-                              style="background:#E8F200;width:8px;height:8px;font-size:0;line-height:0;">&nbsp;</td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td valign="middle" class="arch"
-                        style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;padding:8px 0;font-size:12.5px;font-weight:500;line-height:20px;color:#C2D0CB;">
-                        AI in Startups &amp; Entrepreneurship</td>
-                      <td valign="middle" align="right" class="kufi"
-                        style="font-family:'Reem Kufi','Noto Kufi Arabic','Tajawal',Tahoma,Arial,sans-serif;padding:8px 0;font-size:13.5px;line-height:20px;color:#E8F200;"
-                        dir="rtl">الشركات الناشئة</td>
-                    </tr>
-                    <tr>
-                      <td width="22" valign="middle" style="padding:8px 0;line-height:0;font-size:0;">
-                        <table cellpadding="0" cellspacing="0" border="0">
-                          <tr>
-                            <td width="8" height="8" bgcolor="#F5A623"
-                              style="background:#F5A623;width:8px;height:8px;font-size:0;line-height:0;">&nbsp;</td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td valign="middle" class="arch"
-                        style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;padding:8px 0;font-size:12.5px;font-weight:500;line-height:20px;color:#C2D0CB;">
-                        AI in Business &amp; Enterprise</td>
-                      <td valign="middle" align="right" class="kufi"
-                        style="font-family:'Reem Kufi','Noto Kufi Arabic','Tajawal',Tahoma,Arial,sans-serif;padding:8px 0;font-size:13.5px;line-height:20px;color:#F5A623;"
-                        dir="rtl">الأعمال والمؤسسات</td>
-                    </tr>
-                    <tr>
-                      <td width="22" valign="middle" style="padding:8px 0;line-height:0;font-size:0;">
-                        <table cellpadding="0" cellspacing="0" border="0">
-                          <tr>
-                            <td width="8" height="8" bgcolor="#00D4FF"
-                              style="background:#00D4FF;width:8px;height:8px;font-size:0;line-height:0;">&nbsp;</td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td valign="middle" class="arch"
-                        style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;padding:8px 0;font-size:12.5px;font-weight:500;line-height:20px;color:#C2D0CB;">
-                        AI in Tech &amp; Infrastructure</td>
-                      <td valign="middle" align="right" class="kufi"
-                        style="font-family:'Reem Kufi','Noto Kufi Arabic','Tajawal',Tahoma,Arial,sans-serif;padding:8px 0;font-size:13.5px;line-height:20px;color:#00D4FF;"
-                        dir="rtl">التقنية والبنية التحتية</td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-
-              <!-- 03 THE WEEK -->
-              <tr>
-                <td style="padding:28px 40px 0 40px;">
-                  <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0B1412"
-                    style="background:#0B1412;">
-                    <tr>
-                      <td width="3" bgcolor="#00E39A" style="font-size:0;line-height:0;">&nbsp;</td>
-                      <td class="mono"
-                        style="font-family:'JetBrains Mono','Courier New',monospace;padding:10px 14px;font-size:10px;font-weight:700;letter-spacing:2.5px;color:#FFFFFF;">
-                        <b>03 &nbsp;THE WEEK</b>
-                      </td>
-                      <td align="right" class="kufi"
-                        style="font-family:'Reem Kufi','Noto Kufi Arabic','Tajawal',Tahoma,Arial,sans-serif;padding:10px 14px;font-size:13px;color:#8FA09A;"
-                        dir="rtl">البرنامج</td>
-                    </tr>
-                  </table>
-                  <div class="arch"
-                    style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:22px;font-weight:500;line-height:28px;color:#FFFFFF;padding-top:18px;">
-                    <b>Seven days. <span style="color:#00E39A;">Every format.</span></b>
-                  </div>
-                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="padding-top:10px;">
-                    <tr>
-                      <td width="88" valign="top" class="mono"
-                        style="font-family:'JetBrains Mono','Courier New',monospace;padding:12px 0;font-size:10px;font-weight:700;letter-spacing:1.5px;color:#00E39A;">
-                        OCT 10</td>
-                      <td valign="top" style="padding:12px 0;">
-                        <div class="arch"
-                          style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:400;color:#FFFFFF;">
-                          Opening Day</div>
-                        <div class="inter"
-                          style="font-family:'Inter 28pt','Inter',-apple-system,Arial,sans-serif;font-size:10px;line-height:18px;color:#7F8F8A;padding-top:3px;">
-                          Everyone in one room for the first time. The region's AI leaders kick off the week.</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="2" height="1" bgcolor="#14201D" style="font-size:0;line-height:0;">&nbsp;</td>
-                    </tr>
-                    <tr>
-                      <td width="88" valign="top" class="mono"
-                        style="font-family:'JetBrains Mono','Courier New',monospace;padding:12px 0;font-size:10px;font-weight:700;letter-spacing:1.5px;color:#00E39A;">
-                        OCT 11&ndash;15</td>
-                      <td valign="top" style="padding:12px 0;">
-                        <div class="arch"
-                          style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:400;color:#FFFFFF;">
-                          Every night, three beats</div>
-                        <div class="inter"
-                          style="font-family:'Inter 28pt','Inter',-apple-system,Arial,sans-serif;font-size:10px;line-height:18px;color:#7F8F8A;padding-top:3px;">
-                          6 to 9 PM five parallel tracks. 9 PM the Day Spotlight, one stage. 10 PM speed networking.
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="2" height="1" bgcolor="#14201D" style="font-size:0;line-height:0;">&nbsp;</td>
-                    </tr>
-                    <tr>
-                      <td width="88" valign="top" class="mono"
-                        style="font-family:'JetBrains Mono','Courier New',monospace;padding:12px 0;font-size:10px;font-weight:700;letter-spacing:1.5px;color:#00E39A;">
-                        OCT 16</td>
-                      <td valign="top" style="padding:12px 0;">
-                        <div class="arch"
-                          style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:400;color:#FFFFFF;">
-                          Speed Networking Day</div>
-                        <div class="inter"
-                          style="font-family:'Inter 28pt','Inter',-apple-system,Arial,sans-serif;font-size:10px;line-height:18px;color:#7F8F8A;padding-top:3px;">
-                          Back in one room, but now you&rsquo;re the one talking. 24 hours of one-to-one matches.</div>
-                      </td>
-                    </tr>
-                  </table>
-                  <div class="mono"
-                    style="font-family:'JetBrains Mono','Courier New',monospace;font-size:9px;font-weight:700;letter-spacing:2px;color:#00E39A;padding-top:12px;">
-                    ALL TIMES CAIRO GMT+3 &nbsp;&middot;&nbsp; JOIN FROM ANYWHERE</div>
-                </td>
-              </tr>
-
-              <!-- CLOSE -->
-              <tr>
-                <td style="padding:34px 40px 0 40px;">
-                  <div style="height:1px;line-height:1px;font-size:0;background:#16241F;">&nbsp;</div>
-                </td>
-              </tr>
-              <tr>
-                <td align="center" style="padding:26px 40px 0 40px;">
-                  <div class="inter"
-                    style="font-family:'Inter 28pt','Inter',-apple-system,Arial,sans-serif;font-size:12px;font-weight:400;color:#96A5A0;">
-                    The region's AI community has a room now. It opens 10 October.</div>
-                  <table cellpadding="0" cellspacing="0" border="0" style="margin:16px auto 0 auto;">
-                    <tr>
-                      <td bgcolor="#00E39A" style="background:#00E39A;border-radius:4px;"><a target="_blank"
-                          rel="noopener"
-                          href="https://brainsmingle.com/aisummit?utm_source=semicolon&utm_medium=email&utm_campaign=aisummit_2026&utm_content=invite&prtref=semicolon"
-                          class="arch"
-                          style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;display:inline-block;padding:15px 40px;font-size:14px;font-weight:600;letter-spacing:1px;color:#03110C;text-decoration:none;"><b>REGISTER
-                            NOW</b></a></td>
-                    </tr>
-                  </table>
-                  <div class="inter"
-                    style="font-family:'Inter 28pt','Inter',-apple-system,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.3px;color:#00E39A;padding-top:18px;">
-                    #CloserThanYouThink &nbsp; #BrainsMingleAISummit</div>
-                </td>
-              </tr>
-              <tr>
-                <td align="center" style="padding:30px 40px 0 40px;">
-                  <div
-                    style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:700;color:#E6EDEA;">
-                    See you in October.</div>
-                  <div
-                    style="font-family:'Inter 28pt','Inter',-apple-system,Arial,sans-serif;font-size:12px;line-height:19px;color:#8D9C97;padding-top:6px;">
-                    SemiColon, official partner of the BrainsMingle AI Summit 2026</div>
-                </td>
-              </tr>
-              <tr>
-                <td height="26" style="font-size:0;line-height:26px;">&nbsp;</td>
-              </tr>
-              <tr>
-                <td style="padding:18px 40px 28px 40px;border-top:1px solid #16241F;">
-                  <div class="inter"
-                    style="font-family:'Inter 28pt','Inter',-apple-system,Arial,sans-serif;font-size:11px;line-height:19px;letter-spacing:0.4px;color:#7E8F89;text-align:center;">
-                    BrainsMingle AI Summit 2026 &nbsp;&middot;&nbsp; 10 &ndash; 16 October 2026 &nbsp;&middot;&nbsp;
-                    Global &middot; Virtual<br><a target="_blank" rel="noopener"
+          <!-- CTA 1 -->
+          <tr>
+            <td align="center" bgcolor="#070C0B" style="background:#070C0B;padding:26px 20px 34px 20px;">
+              <table cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;">
+                <tr>
+                  <td align="center">
+                    <a target="_blank" rel="noopener"
                       href="https://brainsmingle.com/aisummit?utm_source=semicolon&utm_medium=email&utm_campaign=aisummit_2026&utm_content=invite&prtref=semicolon"
-                      style="color:#7E8F89;text-decoration:underline;">brainsmingle.com/AISummit</a>
-                    &nbsp;&middot;&nbsp; <a target="_blank" rel="noopener" href="#"
-                      style="color:#7E8F89;text-decoration:underline;">Unsubscribe</a></div>
-                </td>
-              </tr>
+                      class="summit-btn">
+                      REGISTER NOW
+                    </a>
+                  </td>
+                </tr>
+              </table>
+              <div
+                style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:13px;line-height:20px;color:#96A5A0;padding-top:14px;">
+                Free to attend &nbsp;&middot;&nbsp; Fully virtual &nbsp;&middot;&nbsp; 10 &ndash; 16 October 2026
+              </div>
+            </td>
+          </tr>
 
-            </table>
-          </td>
-        </tr>
-      </table>
-    </body>
+          <!-- PARTNER OPENER -->
+          <tr>
+            <td class="summit-px" style="padding-top:0;padding-bottom:0;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0B1412"
+                style="background:#0B1412;border-collapse:collapse;">
+                <tr>
+                  <td width="3" bgcolor="#00E39A" style="background:#00E39A;font-size:0;line-height:0;">&nbsp;</td>
+                  <td
+                    style="padding:18px 16px;font-family:'Inter',-apple-system,Arial,sans-serif;font-size:13.5px;line-height:22px;color:#B6C3BE;">
+                    As an official partner of the BrainsMingle AI Summit 2026, <b style="color:#FFFFFF;">SemiColon</b>
+                    is bringing our community into the room. The summit is
+                    free for everyone, and registering through our link puts you on the list for special offers from
+                    the summit&rsquo;s partners.
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
 
-    </html>
+          <!-- REFERRAL CODE -->
+          <tr>
+            <td class="summit-px" style="padding-top:12px;padding-bottom:30px;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#071110"
+                style="background:#071110;border:1px dashed #1E3A33;border-collapse:collapse;">
+                <tr>
+                  <td align="center" style="padding:18px 16px;">
+                    <div
+                      style="font-family:'JetBrains Mono','Courier New',monospace;font-size:10px;font-weight:700;letter-spacing:2.5px;color:#7E8F89;">
+                      YOUR REFERRAL CODE</div>
+                    <div class="referral-code-text"
+                      style="font-family:'JetBrains Mono','Courier New',monospace;font-size:24px;font-weight:700;letter-spacing:4px;color:#00E39A;padding-top:8px;">
+                      <a target="_blank" rel="noopener"
+                        href="https://brainsmingle.com/aisummit?utm_source=semicolon&utm_medium=email&utm_campaign=aisummit_2026&utm_content=invite&prtref=semicolon"
+                        style="color:#00E39A;text-decoration:none;">SEMICOLON</a>
+                    </div>
+                    <div
+                      style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:12px;line-height:19px;color:#8D9C97;padding-top:8px;">
+                      <span style="color:#00E39A;font-weight:700;">&#10003;</span> Already applied to your link.
+                      Nothing to type.
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
 
-    <!-- End of custom HTML content -->
+          <!-- STATS -->
+          <tr>
+            <td class="summit-px" style="padding-top:0;padding-bottom:0;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0A110F"
+                style="table-layout:fixed;background:#0A110F;border:1px solid #16241F;border-collapse:collapse;">
+                <tr>
+                  <td width="20%" align="center" class="stat-cell"
+                    style="width:20%;padding:14px 0;border-right:1px solid #16241F;">
+                    <div class="stat-num"
+                      style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:800;color:#FFFFFF;">
+                      <b>50K+</b>
+                    </div>
+                    <div class="stat-label"
+                      style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:10px;letter-spacing:0.8px;color:#7E8F89;padding-top:6px;">
+                      ATTENDEES</div>
+                  </td>
+                  <td width="20%" align="center" class="stat-cell"
+                    style="width:20%;padding:14px 0;border-right:1px solid #16241F;">
+                    <div class="stat-num"
+                      style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:800;color:#FFFFFF;">
+                      <b>100+</b>
+                    </div>
+                    <div class="stat-label"
+                      style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:10px;letter-spacing:0.8px;color:#7E8F89;padding-top:6px;">
+                      SPEAKERS</div>
+                  </td>
+                  <td width="20%" align="center" class="stat-cell"
+                    style="width:20%;padding:14px 0;border-right:1px solid #16241F;">
+                    <div class="stat-num"
+                      style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:800;color:#FFFFFF;">
+                      <b>90+</b>
+                    </div>
+                    <div class="stat-label"
+                      style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:10px;letter-spacing:0.8px;color:#7E8F89;padding-top:6px;">
+                      SESSIONS</div>
+                  </td>
+                  <td width="20%" align="center" class="stat-cell"
+                    style="width:20%;padding:14px 0;border-right:1px solid #16241F;">
+                    <div class="stat-num"
+                      style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:800;color:#FFFFFF;">
+                      <b>5</b>
+                    </div>
+                    <div class="stat-label"
+                      style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:10px;letter-spacing:0.8px;color:#7E8F89;padding-top:6px;">
+                      TRACKS</div>
+                  </td>
+                  <td width="20%" align="center" class="stat-cell" style="width:20%;padding:14px 0;">
+                    <div class="stat-num"
+                      style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:17px;font-weight:800;color:#FFFFFF;">
+                      <b>7</b>
+                    </div>
+                    <div class="stat-label"
+                      style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:10px;letter-spacing:0.8px;color:#7E8F89;padding-top:6px;">
+                      DAYS</div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- 01 WHAT IS BRAINSMINGLE AI SUMMIT -->
+          <tr>
+            <td class="summit-px" style="padding-top:30px;padding-bottom:0;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0B1412"
+                style="background:#0B1412;border-collapse:collapse;">
+                <tr>
+                  <td width="3" bgcolor="#00E39A" style="font-size:0;line-height:0;">&nbsp;</td>
+                  <td
+                    style="font-family:'JetBrains Mono','Courier New',monospace;padding:10px 14px;font-size:10px;font-weight:700;letter-spacing:2px;color:#FFFFFF;">
+                    <b>01 &nbsp;WHAT IS BRAINSMINGLE AI SUMMIT</b>
+                  </td>
+                  <td align="right"
+                    style="font-family:'Reem Kufi','Noto Kufi Arabic','Tajawal',Tahoma,Arial,sans-serif;padding:10px 14px;font-size:13px;color:#8FA09A;"
+                    dir="rtl">ما هي القمة</td>
+                </tr>
+              </table>
+              <div class="section-heading"
+                style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:24px;font-weight:600;line-height:30px;color:#FFFFFF;padding-top:20px;">
+                Everyone in AI.<br>One week. <span style="color:#00E39A;">One room.</span>
+              </div>
+              <div
+                style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:13.5px;line-height:22px;color:#96A5A0;padding-top:12px;">
+                The <b style="color:#FFFFFF;">BrainsMingle AI Summit</b> is a week-long virtual event built entirely
+                around artificial intelligence, streamed live on BrainsMingle. Five tracks run in parallel every
+                night for seven nights: live sessions, a signature panel, and speed networking rounds that end in a
+                full day of nothing but introductions.
+              </div>
+            </td>
+          </tr>
+
+          <!-- 02 THE TRACKS -->
+          <tr>
+            <td class="summit-px" style="padding-top:28px;padding-bottom:0;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0B1412"
+                style="background:#0B1412;border-collapse:collapse;">
+                <tr>
+                  <td width="3" bgcolor="#00E39A" style="font-size:0;line-height:0;">&nbsp;</td>
+                  <td
+                    style="font-family:'JetBrains Mono','Courier New',monospace;padding:10px 14px;font-size:10px;font-weight:700;letter-spacing:2px;color:#FFFFFF;">
+                    <b>02 &nbsp;THE TRACKS</b>
+                  </td>
+                  <td align="right"
+                    style="font-family:'Reem Kufi','Noto Kufi Arabic','Tajawal',Tahoma,Arial,sans-serif;padding:10px 14px;font-size:13px;color:#8FA09A;"
+                    dir="rtl">المسارات</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="summit-px" style="padding-top:14px;padding-bottom:0;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+                <tr>
+                  <td width="20" valign="middle" style="padding:8px 0;line-height:0;font-size:0;">
+                    <div style="background:#00E8A2;width:8px;height:8px;display:inline-block;"></div>
+                  </td>
+                  <td valign="middle"
+                    style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;padding:8px 0;font-size:12.5px;font-weight:500;line-height:20px;color:#C2D0CB;">
+                    AI in Learning &amp; Development</td>
+                  <td valign="middle" align="right"
+                    style="font-family:'Reem Kufi','Noto Kufi Arabic','Tajawal',Tahoma,Arial,sans-serif;padding:8px 0;font-size:13px;line-height:20px;color:#00E8A2;"
+                    dir="rtl">التعلّم والتطوير</td>
+                </tr>
+                <tr>
+                  <td width="20" valign="middle" style="padding:8px 0;line-height:0;font-size:0;">
+                    <div style="background:#F53E9F;width:8px;height:8px;display:inline-block;"></div>
+                  </td>
+                  <td valign="middle"
+                    style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;padding:8px 0;font-size:12.5px;font-weight:500;line-height:20px;color:#C2D0CB;">
+                    AI in Creative Industries</td>
+                  <td valign="middle" align="right"
+                    style="font-family:'Reem Kufi','Noto Kufi Arabic','Tajawal',Tahoma,Arial,sans-serif;padding:8px 0;font-size:13px;line-height:20px;color:#F53E9F;"
+                    dir="rtl">الصناعات الإبداعية</td>
+                </tr>
+                <tr>
+                  <td width="20" valign="middle" style="padding:8px 0;line-height:0;font-size:0;">
+                    <div style="background:#E8F200;width:8px;height:8px;display:inline-block;"></div>
+                  </td>
+                  <td valign="middle"
+                    style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;padding:8px 0;font-size:12.5px;font-weight:500;line-height:20px;color:#C2D0CB;">
+                    AI in Startups &amp; Entrepreneurship</td>
+                  <td valign="middle" align="right"
+                    style="font-family:'Reem Kufi','Noto Kufi Arabic','Tajawal',Tahoma,Arial,sans-serif;padding:8px 0;font-size:13px;line-height:20px;color:#E8F200;"
+                    dir="rtl">الشركات الناشئة</td>
+                </tr>
+                <tr>
+                  <td width="20" valign="middle" style="padding:8px 0;line-height:0;font-size:0;">
+                    <div style="background:#F5A623;width:8px;height:8px;display:inline-block;"></div>
+                  </td>
+                  <td valign="middle"
+                    style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;padding:8px 0;font-size:12.5px;font-weight:500;line-height:20px;color:#C2D0CB;">
+                    AI in Business &amp; Enterprise</td>
+                  <td valign="middle" align="right"
+                    style="font-family:'Reem Kufi','Noto Kufi Arabic','Tajawal',Tahoma,Arial,sans-serif;padding:8px 0;font-size:13px;line-height:20px;color:#F5A623;"
+                    dir="rtl">الأعمال والمؤسسات</td>
+                </tr>
+                <tr>
+                  <td width="20" valign="middle" style="padding:8px 0;line-height:0;font-size:0;">
+                    <div style="background:#00D4FF;width:8px;height:8px;display:inline-block;"></div>
+                  </td>
+                  <td valign="middle"
+                    style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;padding:8px 0;font-size:12.5px;font-weight:500;line-height:20px;color:#C2D0CB;">
+                    AI in Tech &amp; Infrastructure</td>
+                  <td valign="middle" align="right"
+                    style="font-family:'Reem Kufi','Noto Kufi Arabic','Tajawal',Tahoma,Arial,sans-serif;padding:8px 0;font-size:13px;line-height:20px;color:#00D4FF;"
+                    dir="rtl">التقنية والبنية التحتية</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- 03 THE WEEK -->
+          <tr>
+            <td class="summit-px" style="padding-top:28px;padding-bottom:0;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0B1412"
+                style="background:#0B1412;border-collapse:collapse;">
+                <tr>
+                  <td width="3" bgcolor="#00E39A" style="font-size:0;line-height:0;">&nbsp;</td>
+                  <td
+                    style="font-family:'JetBrains Mono','Courier New',monospace;padding:10px 14px;font-size:10px;font-weight:700;letter-spacing:2px;color:#FFFFFF;">
+                    <b>03 &nbsp;THE WEEK</b>
+                  </td>
+                  <td align="right"
+                    style="font-family:'Reem Kufi','Noto Kufi Arabic','Tajawal',Tahoma,Arial,sans-serif;padding:10px 14px;font-size:13px;color:#8FA09A;"
+                    dir="rtl">البرنامج</td>
+                </tr>
+              </table>
+              <div class="section-heading"
+                style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:22px;font-weight:600;line-height:28px;color:#FFFFFF;padding-top:18px;">
+                Seven days. <span style="color:#00E39A;">Every format.</span>
+              </div>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0"
+                style="padding-top:10px;border-collapse:collapse;">
+                <tr>
+                  <td width="88" valign="top" class="schedule-date"
+                    style="font-family:'JetBrains Mono','Courier New',monospace;padding:12px 0;font-size:10px;font-weight:700;letter-spacing:1.5px;color:#00E39A;">
+                    OCT 10</td>
+                  <td valign="top" style="padding:12px 0;">
+                    <div
+                      style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:500;color:#FFFFFF;">
+                      Opening Day</div>
+                    <div
+                      style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:11px;line-height:18px;color:#7F8F8A;padding-top:3px;">
+                      Everyone in one room for the first time. The region's AI leaders kick off the week.</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" height="1" bgcolor="#14201D" style="font-size:0;line-height:0;">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td width="88" valign="top" class="schedule-date"
+                    style="font-family:'JetBrains Mono','Courier New',monospace;padding:12px 0;font-size:10px;font-weight:700;letter-spacing:1.5px;color:#00E39A;">
+                    OCT 11&ndash;15</td>
+                  <td valign="top" style="padding:12px 0;">
+                    <div
+                      style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:500;color:#FFFFFF;">
+                      Every night, three beats</div>
+                    <div
+                      style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:11px;line-height:18px;color:#7F8F8A;padding-top:3px;">
+                      6 to 9 PM five parallel tracks. 9 PM the Day Spotlight, one stage. 10 PM speed networking.
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" height="1" bgcolor="#14201D" style="font-size:0;line-height:0;">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td width="88" valign="top" class="schedule-date"
+                    style="font-family:'JetBrains Mono','Courier New',monospace;padding:12px 0;font-size:10px;font-weight:700;letter-spacing:1.5px;color:#00E39A;">
+                    OCT 16</td>
+                  <td valign="top" style="padding:12px 0;">
+                    <div
+                      style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:500;color:#FFFFFF;">
+                      Speed Networking Day</div>
+                    <div
+                      style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:11px;line-height:18px;color:#7F8F8A;padding-top:3px;">
+                      Back in one room, but now you&rsquo;re the one talking. 24 hours of one-to-one matches.</div>
+                  </td>
+                </tr>
+              </table>
+              <div
+                style="font-family:'JetBrains Mono','Courier New',monospace;font-size:9px;font-weight:700;letter-spacing:2px;color:#00E39A;padding-top:12px;">
+                ALL TIMES CAIRO GMT+3 &nbsp;&middot;&nbsp; JOIN FROM ANYWHERE</div>
+            </td>
+          </tr>
+
+          <!-- CLOSE & CTA 2 -->
+          <tr>
+            <td class="summit-px" style="padding-top:30px;padding-bottom:0;">
+              <div style="height:1px;line-height:1px;font-size:0;background:#16241F;">&nbsp;</div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" class="summit-px" style="padding-top:24px;padding-bottom:0;">
+              <div
+                style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:12px;font-weight:400;color:#96A5A0;">
+                The region's AI community has a room now. It opens 10 October.</div>
+              <table cellpadding="0" cellspacing="0" border="0" style="margin:16px auto 0 auto;">
+                <tr>
+                  <td align="center">
+                    <a target="_blank" rel="noopener"
+                      href="https://brainsmingle.com/aisummit?utm_source=semicolon&utm_medium=email&utm_campaign=aisummit_2026&utm_content=invite&prtref=semicolon"
+                      class="summit-btn">
+                      REGISTER NOW
+                    </a>
+                  </td>
+                </tr>
+              </table>
+              <div
+                style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.3px;color:#00E39A;padding-top:18px;">
+                #CloserThanYouThink &nbsp;&middot;&nbsp; #BrainsMingleAISummit</div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" class="summit-px" style="padding-top:28px;padding-bottom:0;">
+              <div
+                style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:700;color:#E6EDEA;">
+                See you in October.</div>
+              <div
+                style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:12px;line-height:19px;color:#8D9C97;padding-top:6px;">
+                SemiColon, official partner of the BrainsMingle AI Summit 2026</div>
+            </td>
+          </tr>
+          <tr>
+            <td height="20" style="font-size:0;line-height:20px;">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="summit-px" style="padding-top:18px;padding-bottom:28px;border-top:1px solid #16241F;">
+              <div
+                style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:11px;line-height:19px;letter-spacing:0.4px;color:#7E8F89;text-align:center;">
+                BrainsMingle AI Summit 2026 &nbsp;&middot;&nbsp; 10 &ndash; 16 October 2026 &nbsp;&middot;&nbsp; Global
+                &middot; Virtual<br>
+                <a target="_blank" rel="noopener"
+                  href="https://brainsmingle.com/aisummit?utm_source=semicolon&utm_medium=email&utm_campaign=aisummit_2026&utm_content=invite&prtref=semicolon"
+                  style="color:#00E39A;text-decoration:underline;">brainsmingle.com/AISummit</a>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
 
     <div>
       <a href="index.html" class="back-link">&larr; Back to Forms</a>
